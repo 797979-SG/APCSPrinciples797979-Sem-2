@@ -1,5 +1,4 @@
 //Sebastian Gomez
-var ships = []
 var boids = []
 var attraction;
 //  The setup function function is called once when your program begins
@@ -8,27 +7,25 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(20, 20, 20);
   fill(200, 30, 150);
-  loadPlanet(10);
-
+  loadBoids(75)
 }
 
 //  The draw function is called @ 30 fps
 function draw() {
   background(20, 20, 20, 30);
-  runPlanet();
+  runBoids();
 }
 
 function loadBoids(n){
   for(var i = 0; i < n; i++){
-    boids[i] = new Boids(random(width), random(height), random(-10, 10), random(-10, 10), i);
+    boids[i] = new Boid(random(width), random(height), random(-10, 10), random(-10, 10), i);
 
   }
 }
 
-function runPlanet(){
-  attraction.run();
-  for(var i = 0; i < ships.length; i++){
-    ships[i].run();
+function runBoids(){
+  for(var i = 0; i < boids.length; i++){
+    boids[i].run();
   }
 
 }
