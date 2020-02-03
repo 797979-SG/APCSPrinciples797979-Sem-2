@@ -28,7 +28,7 @@ function runBoids(){
   for(var i = 0; i < boids.length; i++){
     boids[i].run();
   }
-  for(var i = 0; i < orbiters`.length; i++){
+  for(var i = 0; i < orbiters.length; i++){
     boids[i].run();
   }
 }
