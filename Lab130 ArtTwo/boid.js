@@ -4,7 +4,6 @@ class Boid{
     this.vel = createVector(dx,dy);
     this.acc = createVector(0,0);
     this.clr = color(random(255), random(255), random(255))
-    this.orbiters = [];
   }
 
   run(){
@@ -33,18 +32,36 @@ class Boid{
   }
 
   update(){
+    var distToMainBall;
+    var distToMainBall2;
+    if(this.id >= 0){
+      distToMainBall = this.loc.dist(attraction.loc);
+      distToMainBall2 = this.loc.dist(repulsion.loc);
+      if(distToMainBall < 450){
+        //attraction
+      this.acc = p5.Vector.sub(attraction.loc, this.loc);
+      this.acc.normalize();
+      this.acc.mult(0.1);
+    }
+    if(distToMainBall2 < 450){
+      //repulsion
+      this.acc = p5.Vector.sub(this.loc, repulsion.loc);
+      this.acc.normalize();
+      this.acc.mult(0.5);
+    }
+  }
+
     this.vel.add(this.acc)
     this.loc.add(this.vel)
     this.vel.limit(8)
-    }
-
+  }
   render(){
     stroke(this.clr);
     var distToBoid
     for(var i = 0; i < boids.length; i++){
       distToBoid = this.loc.dist(boids[i].loc)
       if(distToBoid < 200){
-        line(this.loc.x, this.loc.y, boids[i].loc.x, boids[i].loc.y)
+        line(attraction.loc.x, repulsion.loc.y, boids[i].loc.x, boids[i].loc.y)
       }
     }
   }

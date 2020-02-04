@@ -3,7 +3,7 @@ class Balls{
     this.loc = createVector(x,y);
     this.vel = createVector(dx,dy);
     this.acc = createVector(0,0);
-    this.clr = color(random(255), random(255), random(255))
+    this.clr = color(255,0,0)
   }
 
   run(){
@@ -15,19 +15,15 @@ class Balls{
   checkEdges(){
   if(this.loc.x < 0){
     this.vel.x = -this.vel.x;
-    this.clr = color(random(255), random(255), random(255))
   }
   if(this.loc.x > width){
     this.vel.x = -this.vel.x;
-    this.clr = color(random(255), random(255), random(255))
   }
   if(this.loc.y < 0){
     this.vel.y = -this.vel.y;
-    this.clr = color(random(255), random(255), random(255))
   }
   if(this.loc.y > height){
     this.vel.y = -this.vel.y;
-    this.clr = color(random(255), random(255), random(255))
   }
 }
 
