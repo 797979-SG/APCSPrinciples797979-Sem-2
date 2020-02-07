@@ -1,32 +1,32 @@
 ArrayList < Firework > show = new ArrayList();
 bool firing = true;
 
-void setup() {
+function setup() {
 	fullScreen();
 	background(0);
 }
 
-void draw() {
+function draw() {
 	fill(0,50);
 	noStroke();
 	rect(0,0,width,height);
 
 	if (firing)
-		show.add(new Firework(random(width),random(height)));
+	show.add(new Firework(random(width),random(height)));
 
 	for (Firework thisFirework: show)
-		thisFirework.render();
+	thisFirework.render();
 }
 
-void mouseClicked() {
+function mouseClicked() {
 	show.add(new Firework());
 }
 
-void mouseDragged() {
+function mouseDragged() {
 	show.add(new Firework());
 }
 
-void keyPressed() {
+function keyPressed() {
 	if (key == ' ')
-		firing = !firing;
+	firing = !firing;
 }
