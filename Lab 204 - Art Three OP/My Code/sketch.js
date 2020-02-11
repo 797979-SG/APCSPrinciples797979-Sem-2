@@ -1,5 +1,6 @@
-ArrayList < Firework > show = new ArrayList();
-bool firing = true;
+// ArrayList < Firework > show = new ArrayList();
+var show = []
+var firing = true
 
 function setup() {
 	fullScreen();
@@ -14,19 +15,19 @@ function draw() {
 	if (firing)
 	show.add(new Firework(random(width),random(height)));
 
-	for (Firework thisFirework: show)
-	thisFirework.render();
+	for (i = 0; i < show.length; i++)
+	show[i].render();
 }
 
-function mouseClicked() {
-	show.add(new Firework());
+function mouseClicked(){
+	show.add(new Firework(mouseX, mouseY));
 }
 
-function mouseDragged() {
-	show.add(new Firework());
+function mouseDragged(){
+	show.add(new Firework(mouseX, mouseY));
 }
 
-function keyPressed() {
+function keyPressed(){
 	if (key == ' ')
 	firing = !firing;
 }
