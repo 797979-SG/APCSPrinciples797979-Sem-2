@@ -3,7 +3,8 @@ var show = []
 var firing = true
 
 function setup() {
-	fullScreen();
+	var cnv = createCanvas(1000,1000)
+	cnv.position((windowWidth - width)/2,30)
 	background(0);
 }
 
