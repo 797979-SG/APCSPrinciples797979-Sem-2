@@ -15,21 +15,13 @@ function setup() {
 function draw(){
   count++
   if(count > 50000) count = 0;
+
+  if(particles.length < 20 && count%3 ===0){
+    loadParticle();
+  }
 }
 
-function loadBoids(n){
-  repulsion = new Balls(400,400,50,50);
-  attraction = new Balls(400,400,50,50);
+function loadParticle(n){
   for(var i = 0; i < n; i++){
-    boids[i] = new Boid(random(width), random(height), random(-10, 10), random(-10, 10), i);
-
-  }
-}
-
-function runBoids(){
-  attraction.run();
-  repulsion.run();
-  for(var i = 0; i < boids.length; i++){
-    boids[i].run();
-  }
+    particle[i] = new Particle(random(width), random(height), random(-10, 10), random(-10, 10) i);
 }
