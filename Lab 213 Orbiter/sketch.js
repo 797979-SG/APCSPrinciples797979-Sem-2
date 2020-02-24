@@ -13,15 +13,23 @@ function setup() {
 
 //  The draw function is called @ 30 fps
 function draw(){
+  background(15, 15, 15, 10)
   count++
   if(count > 50000) count = 0;
 
   if(particles.length < 20 && count%3 ===0){
-    loadParticle();
+    loadParticle(1);
   }
 }
 
 function loadParticle(n){
   for(var i = 0; i < n; i++){
-    particle[i] = new Particle(random(width), random(height), random(-10, 10), random(-10, 10) i);
+    particles[i] = new Particle(width/2, height/2);
+  }
+  for(var i = 0; i < particles.length; i++){
+    if(particles[i].lifeSpan < 0){
+      particles.splice(i, 1);
+    }
+    particles[i].run();
+  }
 }

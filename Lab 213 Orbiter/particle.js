@@ -1,7 +1,7 @@
 class Particle{
-  constructor(loc){
-    this.loc = loc;
-    this.vel = createVector(random(-.3, .3) random(-.3, .3));
+  constructor(x, y){
+    this.loc = createVector(x, y);
+    this.vel = createVector(random(-.3, .3), random(-.3, .3));
     this.acc = createVector(0,0);
     this.rad = random(11,22);
     this.lifeSpan = random(1000)
@@ -11,10 +11,9 @@ class Particle{
     this.clr = color(r,g,b);
     this.fclr = color(r,g,b,10);
     this.orbiters = [];
-    this.loadOrbiters(i)
+    this.loadOrbiters(1)
     this.angle = random(TWO_PI)
   }
-}
 
   loadOrbiters(n){
     for(var i = 0; i < n; i++){
@@ -47,3 +46,4 @@ class Particle{
       var oy = this.loc.y + 30*sin(0);
     }
   }
+}
