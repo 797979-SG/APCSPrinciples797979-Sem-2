@@ -17,14 +17,14 @@ function draw(){
   count++
   if(count > 50000) count = 0;
 
-  if(particles.length < 20 && count%3 ===0){
+  if(particles.length < 1000 && count%3 ===0){
     loadParticle(1);
   }
 }
 
 function loadParticle(n){
   for(var i = 0; i < n; i++){
-    particles[i] = new Particle(width/2, height/2);
+    particles.push(new Particle(width/2, height/2));
   }
   for(var i = 0; i < particles.length; i++){
     if(particles[i].lifeSpan < 0){
@@ -32,4 +32,8 @@ function loadParticle(n){
     }
     particles[i].run();
   }
+}
+
+function mousePressed(){
+  toggle = -toggle;
 }
