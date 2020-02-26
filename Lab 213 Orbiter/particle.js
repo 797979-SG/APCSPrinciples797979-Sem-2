@@ -29,10 +29,11 @@ class Particle{
 
   update(){
     if(toggle === 1){
+      this.angle += .01
       //+++++++update orbitor++++++++++++++++++++++
       for(var i = 0; i < this.orbiters.length; i++){
-        this.orbiters[i].loc.x = this.loc.x + 30*cos(0);
-        this.orbiters[i].loc.y = this.loc.y + 30*sin(0);
+        this.orbiters[i].loc.x = this.loc.x + 30*cos(this.angle);
+        this.orbiters[i].loc.y = this.loc.y + 30*sin(this.angle);
       }
       //+++++++++++++++++++++++++++++++++++++
       this.vel.add(this.acc);
