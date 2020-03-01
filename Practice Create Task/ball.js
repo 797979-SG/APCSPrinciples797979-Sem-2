@@ -4,7 +4,6 @@ class Ball{
     this.vel = createVector(dx,dy);
     this.acc = createVector(0)
     this.w = 15
-    if(this.id < 0)(this.w = 50)
     this.clr = color(random(255),random(255),random(255))
   }
 
@@ -43,4 +42,4 @@ class Ball{
     fill(this.clr);
     ellipse(this.loc.x, this.loc.y, this.w, this.w);
   }
-}//  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  end Ball
+}

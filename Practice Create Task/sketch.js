@@ -22,7 +22,7 @@ function loadBoids(n){
   }
 }
 
-function runBalls(){
+function runBoids(){
   mainBall.run();
   for(var i = 0; i < boids.length; i++){
     boids[i].run();
