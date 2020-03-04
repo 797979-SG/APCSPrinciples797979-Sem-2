@@ -3,7 +3,7 @@ class Ball{
     this.loc = createVector(x,y);
     this.vel = createVector(dx,dy);
     this.acc = createVector(0)
-    this.w = 15
+    this.w = 25
     this.clr = color(random(255),random(255),random(255))
   }
 
@@ -33,9 +33,13 @@ class Ball{
   }
 
   update(){
+  //   if (mouseIsPressed = true){
+  //   var mouseLoc = createVector(mouseX, mouseY);
+  //   this.loc = p5.Vector.lerp(mouseLoc, mouseLoc, .89);
+  // }
     this.vel.add(this.acc);
     this.loc.add(this.vel);
-    this.vel.limit(5);
+    this.vel.limit(10);
 
   }
   render(){

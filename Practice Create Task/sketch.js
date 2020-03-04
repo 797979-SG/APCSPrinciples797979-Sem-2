@@ -16,7 +16,7 @@ function draw(){
 }
 
 function loadBoids(n){
-  mainBall = new Ball(width/2, height/2, random(-1,1), random(-1,1));
+  mainBall = new Ball(width/2, height/2, random(-2.5,2.5), random(-2.5,2.5));
   for(var i = 0; i < n; i++){
     boids[i] = new Boid(random(width), random(height), random(-1,1), random(-1,1));
   }
