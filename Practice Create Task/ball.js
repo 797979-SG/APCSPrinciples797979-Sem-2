@@ -33,10 +33,10 @@ class Ball{
   }
 
   update(){
-  //   if (mouseIsPressed = true){
-  //   var mouseLoc = createVector(mouseX, mouseY);
-  //   this.loc = p5.Vector.lerp(mouseLoc, mouseLoc, .89);
-  // }
+    if (mouseIsPressed === true){
+      var mouseLoc = createVector(mouseX, mouseY);
+      this.loc = p5.Vector.lerp(mouseLoc, mouseLoc, .89);
+    }
     this.vel.add(this.acc);
     this.loc.add(this.vel);
     this.vel.limit(10);
